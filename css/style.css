@@ -10,7 +10,7 @@ html{
 
 body{
     font-family: "Raleway", sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 2;
     background: linear-gradient(
         to right, 
@@ -20,11 +20,23 @@ body{
     );
 }
 
+@media (min-width: 1024px) {
+    body{
+        font-size: 2rem;
+    }
+}
+
 /* Salectores Globales */
 
 h1, h2, h3{
     font-family: 'Cinzel', sans-serif;
-    font-size: 3rem;
+    font-size: 2rem;
+}
+
+@media (min-width: 1024px) {
+    h1, h2, h3{
+        font-size: 3rem;
+    }
 }
 
 a{
@@ -39,16 +51,79 @@ p{
 
 /* Sección del header */
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+}
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+#logout-btn,
+#modal-logout-btn {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-session {
+    display: none; /* Se oculta por defecto */
+    background-color: #222;
+    color: white;
+    padding: 2rem;
+    text-align: right;
+}
+
+.user-session button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+
 .navbar-sup,
 .navbar-bot{
     border-bottom: 0.5rem solid #efb810;
 }
+
 .navigator{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     background-color: #070814;
     opacity: 0.9;
+}
+
+@media (min-width: 1024px){
+    .navigator{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: #070814;
+        opacity: 0.9;
+    }
 }
 
 .home-contenedor{
@@ -75,7 +150,6 @@ p{
         transform: scale(1.2);
 }
 
-
 .login-contenedor{
     flex-grow: 1;
     text-align: center;
@@ -84,6 +158,17 @@ p{
 .nav-principal{
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem
+}
+
+@media (min-width:1024px) {
+    .nav-principal{
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }
 
 .nav-principal a,
@@ -93,7 +178,7 @@ p{
     -webkit-background-clip: text;
     color: transparent;
     text-shadow: 0.2rem 0.2rem 1.5rem rgba(255, 255, 255, 0.8);
-    }
+}
 
 .present{
     background-image: linear-gradient(rgba(7,8,20,0.6),
@@ -110,12 +195,18 @@ p{
 }
 
 .present-text{
-    font-size: 3rem;
+    font-size: 2rem;
     color: #c0c0c0; /* Plateado */
     text-shadow: 0.2rem 0.2rem 0.8rem rgba(0, 0, 0, 0.7); /* Sombra oscura */
     text-align: center;
-    line-height: 4;
     overflow: hidden; /* Evita el desbordamiento */
+}
+
+@media (min-width:1024px){
+    .present-text{
+        font-size: 3rem;
+        line-height: 4;
+    }
 }
 
 /* Sección Events and news */
@@ -212,7 +303,12 @@ p{
     background-size: cover;
     background-position: center;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 1024px) {
+    .what-is{
+        grid-template-columns: repeat(2, 1fr);
+    }    
 }
 
 .what-is-cont,
@@ -250,11 +346,17 @@ p{
     border: 0.2rem solid #724b30;
     border-radius: 0.5rem; /* redondeamos el boton */
     font-family: 'Cinzel', serif;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     letter-spacing: 0.1rem;
     cursor: pointer;
     box-shadow: 0.2rem 0.2rem 0.8rem rgba(0, 0, 0, 0.5); /* Sombra suave para darle relieve */
     transition: all 0.3s ease; /* Suave transición para los efectos */
+}
+
+@media (min-width: 1024px) {
+    .btn-lore{
+        font-size: 2.4rem;
+    }
 }
 
 .btn-lore:hover{
@@ -280,11 +382,17 @@ p{
     border: 0.2rem solid #0a0a0a;
     border-radius: 0.5rem;
     font-family: 'Cinzel', serif;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     letter-spacing: 0.1rem;
     cursor: pointer;
     box-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.5);
     transition: all 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+    .btn-game{
+        font-size: 2.4rem;
+    }
 }
 
 .btn-game:hover{
@@ -302,15 +410,39 @@ p{
 /* Seccion Elige */
 
 .swiper {
-    width: 40rem;
+    width: 80%;
     height: auto;
     padding: 5rem;
     border-radius: 18px;
+}
 
+@media (min-width: 500px) {
+    .swiper {
+        width: 30rem;
+        height: auto;
+        padding: 5rem;
+        border-radius: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .swiper {
+        width: 40rem;
+        height: auto;
+        padding: 5rem;
+        border-radius: 18px;
+    }
 }
 
 .swiper.swiper-cards{
     padding: 5rem 0;
+    overflow: hidden !important;
+}
+
+@media (min-width: 1024px) {
+    .swiper.swiper-cards{
+        overflow: visible !important;
+    }
 }
 
 .swiper-slide {
@@ -322,19 +454,77 @@ p{
 .swiper-slide img {
     display: block;
     width: 100%;
+    max-width: 100%;
 }
 
-.elige{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+@media (min-width: 1024px) {
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .elige{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
 }
 
 .elige-caption{
     align-content: center;
     padding: 0 2rem;
     color: #070814;
+    text-align: center;
 }
+
+@media (min-width: 768px) {
+    .elige-caption{
+        align-content: center;
+        padding: 0 2rem;
+        color: #070814;
+    }
+}
+
+/* Section play with friends */
+
+.play-friends{
+    color: #070814;
+    background-image: url("../img/index/play-friends.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+.pf-container{
+    padding: 5% 10%;
+    background-color: rgba(7,8,20,0.6);
+    color: #c0c0c0; /* Plateado */
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .pf-container{
+        padding: 5% 25%;
+    }    
+}
+
+.pf-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:2rem
+}
+
+@media (min-width: 1024px) {
+    .pf-buttons{
+        flex-direction: row;
+        justify-content: space-between;
+    }    
+}
+
+
 
 /* Footer */
 
@@ -346,11 +536,194 @@ footer{
 
 .contenedor-politicas{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     padding: 3rem 0;
+    gap: 3rem;
+}
+
+@media (min-width: 600px) {
+    .contenedor-politicas{
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 3rem 0;
+    }
 }
 
 .contenedor-derechos{
     text-align: center;
+}
+
+/* Sección del registro */
+
+.registro-container{
+    margin: 0 auto;
+    padding: 5% 5%;
+}
+
+@media (min-width: 600px) {
+    .registro-container{
+        margin: 0 auto;
+        padding: 5% 20%;
+    }    
+}
+
+
+.form-registro{
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 2rem;
+    border: solid 2px #070814;
+    border-radius: 1rem;
+    box-shadow: 0.2rem 0.2rem 0.8rem #070814;
+    gap: 1rem;
+    margin-top: 5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(230, 230, 230, 0.9)), 
+                radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.8));
+}
+
+@media (min-width: 1024px) {
+    .form-registro{
+        padding: 5rem
+    }    
+}
+
+
+.registro h2{
+    position: relative;
+    color: #070814;
+    text-shadow: 0.2rem 0.2rem 0.5rem #070814 ;
+}
+
+.registro h2::after{
+    content: "";
+    position: absolute;
+    /* posición del borde */
+    bottom: 0; 
+    left: 0;
+    /* Extension y grosor del borde */
+    width: 100%;
+    height: 0.5rem;
+    /* color del borde */
+    background: linear-gradient(90deg,#efb810, #f3ecd9);
+}
+
+.form-registro button{
+    margin-top: 2rem;
+}
+
+/* Sección del login */
+
+.form-registro .container{
+    margin: 0 auto;
+}
+
+.form-registro .container .forgotpass{
+    margin-top: 2rem;
+}
+
+.btn-cancel{
+    margin-bottom: 2rem;
+}
+
+.strength-bar {
+    display: flex;
+    margin-top: 5px;
+}
+.strength-bar div {
+    flex: 1;
+    height: 10px;
+    margin-right: 2px;
+    background-color: lightgray;
+    border-radius: 3px;
+}
+.strength-bar div.weak { background-color: red; }
+.strength-bar div.medium { background-color: orange; }
+.strength-bar div.strong { background-color: green; }
+
+/* Sección de la historia */
+
+.present-historia{
+    background-image: linear-gradient(rgba(7,8,20,0.6),
+    rgba(7,8,20,0.8)),
+    url('../img/historia/portada.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 10%; /* Aumenta el padding general para dar más espacio */
+    box-sizing:content-box;
+}
+
+.historia-text{
+    font-size: clam(1.5rem, 2vw, 2rem);
+    color: #c0c0c0; /* Plateado */
+    text-shadow: 0.2rem 0.2rem 0.8rem rgba(0, 0, 0, 0.7); /* Sombra oscura */
+    text-align: center;
+    overflow: scroll; /* Evita el desbordamiento */
+    max-height: 90%;
+}
+
+.historia-text h1{
+    font-size: 5rem;
+    padding: 2rem 0;
+}
+
+.historia-text p{
+    line-height: 3;
+}
+
+/* Seccion El juego */
+
+.descripcion {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    align-items: start;
+    gap: 2rem;
+}
+
+.descripcion-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+}
+
+.descripcion-img img{
+    border-radius: .5rem;
+    box-shadow: 0.2rem 0.2rem 0.8rem rgba(0, 0, 0, 0.7);
+    max-height: 60vh;
+    width: 90%;
+}
+
+.descripcion-text{
+    padding:  0 10% ;
+    text-align: justify;
+    box-sizing: content-box;
+    max-height:60vh;
+    overflow: scroll;
+    margin: 0 5rem 5rem 0;
+
+}
+
+
+@media (min-width: 1024px) {
+
+    .descripcion{
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin: 0 auto;
+    }
+    
+    .descripcion-img img{
+        max-height: 100vh;
+    }
+    
+    .descripcion-text{
+        max-height: 65vh;
+    }    
 }
