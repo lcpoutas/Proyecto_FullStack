@@ -83,7 +83,7 @@ mysql -u tu_usuario -p < DB/users.sql
 
 ---
 
-### Características Principales ✨
+## Características Principales ✨
 
 El proyecto **Verbo in Pugna** no solo ofrece un diseño atractivo y funcionalidad interactiva, sino que también incorpora múltiples medidas de **seguridad** y **optimización** que garantizan una experiencia confiable y robusta. A continuación, se describen las principales características del proyecto, incluyendo las implementaciones clave de seguridad:
 
